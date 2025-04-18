@@ -27,7 +27,14 @@ mod tests {
     #[test]
     fn getter() {
         unsafe {
-            assert_eq!(*get_stuff(), 3);
+            let mut current = get_stuff();
+            assert_eq!(*current, 3);
+
+            current = current.add(1);
+            assert_eq!(*current, 1);
+
+            current = current.add(1);
+            assert_eq!(*current, 4);
         }
     }
 }
